@@ -33,7 +33,7 @@ export default function Home() {
       <header className="header">
         <a className="logo" href="#home">Bheem Chauhan</a>
         <nav aria-label="Main navigation">
-          <a className="active" href="#about">About</a>
+          <a href="#about">About</a>
           <a href="#interests">Interests</a>
           <a href="#tech-stack">Tech Stack</a>
           <a href="#projects">Projects</a>
