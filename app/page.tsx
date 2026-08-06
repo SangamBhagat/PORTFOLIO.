@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const projects = [
   { title: "Data Analysis", description: "A future project exploring insights from real-world datasets." },
@@ -9,13 +9,21 @@ const projects = [
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     const introTimer = window.setTimeout(() => setShowIntro(false), 12000);
     return () => window.clearTimeout(introTimer);
   }, []);
 
+  useEffect(() => {
+    if (!showIntro) {
+      void audioRef.current?.play().catch(() => undefined);
+    }
+  }, [showIntro]);
+
   return <>
+    <audio ref={audioRef} preload="auto"><source src="/im-batman.mp3" type="audio/mpeg" /></audio>
     {showIntro && <section className="intro-screen" aria-label="Welcome to Bheem Chauhan's portfolio">
       <video className="intro-video" autoPlay muted playsInline preload="auto" onEnded={() => setShowIntro(false)} onError={() => setShowIntro(false)}>
         <source src="/batman-intro.mp4" type="video/mp4" />
