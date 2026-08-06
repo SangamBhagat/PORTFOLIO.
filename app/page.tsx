@@ -18,6 +18,10 @@ export default function Home() {
       </header>
 
       <section id="home" className="hero">
+        <video className="hero-video" autoPlay loop muted playsInline preload="metadata" aria-hidden="true">
+          <source src="/hero-background.mp4" type="video/mp4" />
+        </video>
+        <div className="hero-overlay" aria-hidden="true" />
         <p className="label">Bheem Chauhan · Data Science & AI</p>
         <h1>BUILDING WITH<br /><em>DATA &amp; AI.</em></h1>
         <p className="intro">I&apos;m a first-year Data Science and Artificial Intelligence student, learning how to turn ideas into useful technology.</p>
