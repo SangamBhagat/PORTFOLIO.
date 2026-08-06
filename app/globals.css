@@ -5,10 +5,12 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--black); color: var(--paper); font-family: "DM Sans", sans-serif; }
 a { color: inherit; text-decoration: none; }
-.header { display: flex; align-items: center; justify-content: space-between; padding: 24px 6vw; border-bottom: 1px solid #292929; }
-.logo { color: var(--yellow); font-weight: 700; letter-spacing: .08em; }
-nav { display: flex; gap: 22px; font-size: .85rem; }
-nav a:hover, .contact a:hover { color: var(--yellow); }
+.header { display: flex; align-items: center; justify-content: space-between; margin: 12px 1.7vw; padding: 16px 18px; border: 1px solid #45484b; border-radius: 19px; background: linear-gradient(180deg, #181b1e, #0c0e10); box-shadow: inset 0 1px 0 #666a6d, 0 10px 25px rgba(0, 0, 0, .2); }
+.logo { color: #f4f2ed; font-size: 1.05rem; font-weight: 700; }
+nav { display: flex; gap: 23px; font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; }
+nav a { position: relative; color: #d2d2d2; padding: 4px 0; }
+nav a.active::after { content: ""; position: absolute; right: 0; bottom: -4px; left: 0; height: 2px; background: linear-gradient(90deg, #47d9ee, #f4f1b8, #e5a776); box-shadow: 0 0 14px #52dded; }
+nav a:hover, .contact a:hover { color: #fff; }
 .hero, .section, .contact { padding: 100px 6vw; }
 .hero { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; background: radial-gradient(circle at 80% 30%, #3a2e05, var(--black) 42%); }
 .label { color: var(--yellow); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
@@ -28,4 +30,4 @@ em { font-family: "Playfair Display", serif; font-weight: 600; }
 .contact { background: var(--yellow); color: var(--black); }
 .contact .label { color: #554300; }
 .contact a { display: inline-block; margin-top: 8px; border-bottom: 1px solid currentColor; font-size: clamp(1rem, 2vw, 1.5rem); }
-@media (max-width: 600px) { .header { padding: 20px 6vw; } nav { gap: 14px; font-size: .75rem; } .hero, .section, .contact { padding: 75px 6vw; } .project-grid { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .header { margin: 10px; padding: 14px 16px; align-items: flex-start; } .logo { white-space: nowrap; font-size: .9rem; } nav { flex-wrap: wrap; justify-content: flex-end; gap: 10px 15px; font-size: .62rem; } .hero, .section, .contact { padding: 75px 6vw; } .project-grid { grid-template-columns: 1fr; } }

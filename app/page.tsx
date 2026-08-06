@@ -7,11 +7,13 @@ export default function Home() {
   return (
     <main>
       <header className="header">
-        <a className="logo" href="#home">BC</a>
+        <a className="logo" href="#home">Bheem Chauhan</a>
         <nav aria-label="Main navigation">
-          <a href="#about">About</a>
+          <a className="active" href="#about">About</a>
+          <a href="#interests">Interests</a>
+          <a href="#tech-stack">Tech Stack</a>
           <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact">Connect</a>
         </nav>
       </header>
 
