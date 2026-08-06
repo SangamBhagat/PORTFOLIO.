@@ -11,23 +11,17 @@ export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
-    const introTimer = window.setTimeout(() => setShowIntro(false), 3100);
+    const introTimer = window.setTimeout(() => setShowIntro(false), 12000);
     return () => window.clearTimeout(introTimer);
   }, []);
 
-  return (
-    <>
-      {showIntro && <section className="intro-screen" aria-label="Welcome to Bheem Chauhan's portfolio">
-        <div className="intro-orbit" aria-hidden="true" />
-        <div className="intro-content">
-          <p>Initializing portfolio</p>
-          <img className="intro-logo" src="/batman-logo.png" alt="" />
-          <h2>BHEEM <em>CHAUHAN</em></h2>
-          <span className="intro-line" aria-hidden="true" />
-        </div>
-        <small>Data Science &amp; AI · 2026</small>
-      </section>}
-      <main>
+  return <>
+    {showIntro && <section className="intro-screen" aria-label="Welcome to Bheem Chauhan's portfolio">
+      <video className="intro-video" autoPlay muted playsInline preload="auto" onEnded={() => setShowIntro(false)} onError={() => setShowIntro(false)}>
+        <source src="/batman-intro.mp4" type="video/mp4" />
+      </video>
+    </section>}
+    <main>
       <header className="header">
         <a className="logo" href="#home">Bheem Chauhan</a>
         <nav aria-label="Main navigation">
@@ -40,40 +34,17 @@ export default function Home() {
       </header>
 
       <section id="home" className="hero">
-        <video className="hero-video" autoPlay loop muted playsInline preload="metadata" aria-hidden="true">
-          <source src="/hero-background.mp4" type="video/mp4" />
-        </video>
+        <video className="hero-video" autoPlay loop muted playsInline preload="metadata" aria-hidden="true"><source src="/hero-background.mp4" type="video/mp4" /></video>
         <div className="hero-overlay" aria-hidden="true" />
-        <p className="label">Bheem Chauhan · Data Science & AI</p>
+        <p className="label">Bheem Chauhan &middot; Data Science &amp; AI</p>
         <h1>BUILDING WITH<br /><em>DATA &amp; AI.</em></h1>
         <p className="intro">I&apos;m a first-year Data Science and Artificial Intelligence student, learning how to turn ideas into useful technology.</p>
         <a className="button" href="#projects">View projects</a>
       </section>
 
-      <section id="about" className="section about">
-        <p className="label">About me</p>
-        <h2>CURIOUS. FOCUSED.<br /><em>JUST GETTING STARTED.</em></h2>
-        <p>I am Bheem Chauhan, a student interested in data analysis, machine learning and artificial intelligence. This portfolio will grow alongside my learning journey.</p>
-      </section>
-
-      <section id="projects" className="section">
-        <p className="label">Projects</p>
-        <h2>MY WORK.</h2>
-        <div className="project-grid">
-          {projects.map((project, index) => <article className="project" key={project.title}>
-            <span>0{index + 1}</span>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-          </article>)}
-        </div>
-      </section>
-
-      <section id="contact" className="contact">
-        <p className="label">Contact</p>
-        <h2>LET&apos;S CONNECT.</h2>
-        <a href="mailto:bheemchauhan@example.com">bheemchauhan@example.com</a>
-      </section>
-      </main>
-    </>
-  );
+      <section id="about" className="section about"><p className="label">About me</p><h2>CURIOUS. FOCUSED.<br /><em>JUST GETTING STARTED.</em></h2><p>I am Bheem Chauhan, a student interested in data analysis, machine learning and artificial intelligence. This portfolio will grow alongside my learning journey.</p></section>
+      <section id="projects" className="section"><p className="label">Projects</p><h2>MY WORK.</h2><div className="project-grid">{projects.map((project, index) => <article className="project" key={project.title}><span>0{index + 1}</span><h3>{project.title}</h3><p>{project.description}</p></article>)}</div></section>
+      <section id="contact" className="contact"><p className="label">Contact</p><h2>LET&apos;S CONNECT.</h2><a href="mailto:bheemchauhan@example.com">bheemchauhan@example.com</a></section>
+    </main>
+  </>;
 }

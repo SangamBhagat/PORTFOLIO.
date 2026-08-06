@@ -5,21 +5,8 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--black); color: var(--paper); font-family: "DM Sans", sans-serif; }
 a { color: inherit; text-decoration: none; }
-.intro-screen { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; overflow: hidden; background: #050607; color: var(--paper); animation: intro-exit .7s ease 2.4s forwards; }
-.intro-screen::before { content: ""; position: absolute; width: min(80vw, 900px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(243, 198, 34, .16), transparent 63%); animation: intro-glow 2.5s ease-out forwards; }
-.intro-orbit { position: absolute; width: min(48vw, 540px); aspect-ratio: 1; border: 1px solid rgba(243, 198, 34, .22); border-radius: 50%; box-shadow: 0 0 0 40px rgba(243, 198, 34, .025), 0 0 0 90px rgba(243, 198, 34, .02); animation: orbit-spin 2.6s cubic-bezier(.55, .06, .2, 1) forwards; }
-.intro-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
-.intro-content p, .intro-screen small { margin: 0; color: var(--yellow); font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; }
-.intro-logo { width: min(38vw, 360px); margin: 26px 0 19px; filter: drop-shadow(0 0 24px rgba(243, 198, 34, .35)); animation: logo-turn 2.1s cubic-bezier(.22, .75, .25, 1) both; }
-.intro-content h2 { margin: 0; font-size: clamp(1.5rem, 3.1vw, 3.3rem); line-height: 1; letter-spacing: .18em; }
-.intro-content h2 em { color: var(--yellow); font-size: .9em; }
-.intro-line { width: 0; height: 1px; margin-top: 19px; background: var(--yellow); animation: line-grow .65s ease 1.45s forwards; }
-.intro-screen small { position: absolute; right: 4vw; bottom: 4vh; color: #98948b; letter-spacing: .12em; }
-@keyframes logo-turn { 0% { opacity: 0; transform: perspective(700px) rotateY(90deg) scale(.55); } 65% { opacity: 1; transform: perspective(700px) rotateY(-8deg) scale(1.06); } 100% { opacity: 1; transform: perspective(700px) rotateY(0) scale(1); } }
-@keyframes orbit-spin { from { opacity: 0; transform: scale(.4) rotate(-110deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
-@keyframes intro-glow { from { opacity: 0; transform: scale(.35); } to { opacity: 1; transform: scale(1); } }
-@keyframes line-grow { to { width: 110px; } }
-@keyframes intro-exit { to { opacity: 0; visibility: hidden; } }
+.intro-screen { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; overflow: hidden; background: #050607; }
+.intro-video { width: 100%; height: 100%; object-fit: cover; }
 .header { display: flex; align-items: center; justify-content: space-between; margin: 12px 1.7vw; padding: 16px 18px; border: 1px solid #45484b; border-radius: 19px; background: linear-gradient(180deg, #181b1e, #0c0e10); box-shadow: inset 0 1px 0 #666a6d, 0 10px 25px rgba(0, 0, 0, .2); }
 .logo { color: #f4f2ed; font-size: 1.05rem; font-weight: 700; }
 nav { display: flex; gap: 23px; font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; }
@@ -48,5 +35,4 @@ em { font-family: "Playfair Display", serif; font-weight: 600; }
 .contact { background: var(--yellow); color: var(--black); }
 .contact .label { color: #554300; }
 .contact a { display: inline-block; margin-top: 8px; border-bottom: 1px solid currentColor; font-size: clamp(1rem, 2vw, 1.5rem); }
-@media (max-width: 760px) { .intro-logo { width: min(70vw, 320px); } .intro-orbit { width: 70vw; } .intro-screen small { right: 6vw; bottom: 3vh; } .header { margin: 10px; padding: 14px 16px; align-items: flex-start; } .logo { white-space: nowrap; font-size: .9rem; } nav { flex-wrap: wrap; justify-content: flex-end; gap: 10px 15px; font-size: .62rem; } .hero, .section, .contact { padding: 75px 6vw; } .project-grid { grid-template-columns: 1fr; } }
-@media (prefers-reduced-motion: reduce) { .intro-screen, .intro-screen::before, .intro-orbit, .intro-logo, .intro-line { animation-duration: .01ms; animation-delay: 0ms; } }
+@media (max-width: 760px) { .header { margin: 10px; padding: 14px 16px; align-items: flex-start; } .logo { white-space: nowrap; font-size: .9rem; } nav { flex-wrap: wrap; justify-content: flex-end; gap: 10px 15px; font-size: .62rem; } .hero, .section, .contact { padding: 75px 6vw; } .project-grid { grid-template-columns: 1fr; } }
