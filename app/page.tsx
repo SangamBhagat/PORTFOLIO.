@@ -9,6 +9,7 @@ const projects = [
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -32,7 +33,10 @@ export default function Home() {
     <main>
       <header className="header">
         <a className="logo" href="#home">Bheem Chauhan</a>
-        <nav aria-label="Main navigation">
+        <button className="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <span /><span />
+        </button>
+        <nav className={mobileMenuOpen ? "is-open" : ""} aria-label="Main navigation" onClick={() => setMobileMenuOpen(false)}>
           <a href="#about">About</a>
           <a href="#interests">Interests</a>
           <a href="#tech-stack">Tech Stack</a>
