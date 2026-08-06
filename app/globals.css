@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+:root { --black: #0b0b0b; --yellow: #f3c622; --paper: #f1ede4; --grey: #aaa69e; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--black); color: var(--paper); font-family: "DM Sans", sans-serif; }
+a { color: inherit; text-decoration: none; }
+.header { display: flex; align-items: center; justify-content: space-between; padding: 24px 6vw; border-bottom: 1px solid #292929; }
+.logo { color: var(--yellow); font-weight: 700; letter-spacing: .08em; }
+nav { display: flex; gap: 22px; font-size: .85rem; }
+nav a:hover, .contact a:hover { color: var(--yellow); }
+.hero, .section, .contact { padding: 100px 6vw; }
+.hero { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; background: radial-gradient(circle at 80% 30%, #3a2e05, var(--black) 42%); }
+.label { color: var(--yellow); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+h1, h2 { margin: 20px 0; font-size: clamp(3.3rem, 8vw, 7.5rem); line-height: .9; letter-spacing: -.06em; }
+em { font-family: "Playfair Display", serif; font-weight: 600; }
+.intro { max-width: 420px; color: var(--grey); line-height: 1.6; }
+.button { width: fit-content; margin-top: 22px; padding: 12px 18px; background: var(--yellow); color: var(--black); font-weight: 700; }
+.section { border-top: 1px solid #292929; }
+.about { background: var(--paper); color: var(--black); }
+.about .label { color: #8a6c00; }
+.about > p:last-child { max-width: 620px; font-size: 1.1rem; line-height: 1.7; }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 45px; }
+.project { padding: 28px; border: 1px solid #3c3c3c; }
+.project span { color: var(--yellow); font-size: .8rem; }
+.project h3 { margin: 45px 0 10px; font-size: 1.7rem; }
+.project p { margin: 0; color: var(--grey); line-height: 1.5; }
+.contact { background: var(--yellow); color: var(--black); }
+.contact .label { color: #554300; }
+.contact a { display: inline-block; margin-top: 8px; border-bottom: 1px solid currentColor; font-size: clamp(1rem, 2vw, 1.5rem); }
+@media (max-width: 600px) { .header { padding: 20px 6vw; } nav { gap: 14px; font-size: .75rem; } .hero, .section, .contact { padding: 75px 6vw; } .project-grid { grid-template-columns: 1fr; } }
