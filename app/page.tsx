@@ -1,11 +1,33 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 const projects = [
   { title: "Data Analysis", description: "A future project exploring insights from real-world datasets." },
   { title: "Machine Learning", description: "A future project focused on building a simple predictive model." },
 ];
 
 export default function Home() {
+  const [showIntro, setShowIntro] = useState(true);
+
+  useEffect(() => {
+    const introTimer = window.setTimeout(() => setShowIntro(false), 3100);
+    return () => window.clearTimeout(introTimer);
+  }, []);
+
   return (
-    <main>
+    <>
+      {showIntro && <section className="intro-screen" aria-label="Welcome to Bheem Chauhan's portfolio">
+        <div className="intro-orbit" aria-hidden="true" />
+        <div className="intro-content">
+          <p>Initializing portfolio</p>
+          <img className="intro-logo" src="/batman-logo.png" alt="" />
+          <h2>BHEEM <em>CHAUHAN</em></h2>
+          <span className="intro-line" aria-hidden="true" />
+        </div>
+        <small>Data Science &amp; AI · 2026</small>
+      </section>}
+      <main>
       <header className="header">
         <a className="logo" href="#home">Bheem Chauhan</a>
         <nav aria-label="Main navigation">
@@ -51,6 +73,7 @@ export default function Home() {
         <h2>LET&apos;S CONNECT.</h2>
         <a href="mailto:bheemchauhan@example.com">bheemchauhan@example.com</a>
       </section>
-    </main>
+      </main>
+    </>
   );
 }
