@@ -62,7 +62,7 @@ export default function Home() {
       <section id="interests" className="section"><p className="label">Interests</p><h2>WHAT DRIVES<br /><em>MY CURIOSITY.</em></h2><div className="interest-grid">{interests.map((interest, index) => <article key={interest}><span>0{index + 1}</span><h3>{interest}</h3></article>)}</div></section>
       <section id="tech-stack" className="section tech-stack"><p className="label">Tech Stack</p><h2>TOOLS I&apos;M<br /><em>LEARNING.</em></h2><div className="tech-list">{techStack.map((tool) => <span key={tool}>{tool}</span>)}</div></section>
       <section id="projects" className="section"><p className="label">Projects</p><h2>MY WORK.</h2><div className="project-grid">{projects.map((project, index) => <article className="project" key={project.title}><span>0{index + 1}</span><h3>{project.title}</h3><p>{project.description}</p></article>)}</div></section>
-      <section id="contact" className="contact"><p className="label">Contact</p><h2>CONNECT.</h2><a href="mailto:bheemchauhan@example.com">bheemchauhan@example.com</a></section>
+      <section id="contact" className="contact"><p className="label">Connect</p><h2>LET&apos;S CONNECT.</h2><a href="mailto:bheemchauhan@example.com">bheemchauhan@example.com</a></section>
     </main>
   </>;
 }
