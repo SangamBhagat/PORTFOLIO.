@@ -7,6 +7,9 @@ const projects = [
   { title: "Machine Learning", description: "A future project focused on building a simple predictive model." },
 ];
 
+const interests = ["Artificial Intelligence", "Data Analysis", "Machine Learning"];
+const techStack = ["Python", "SQL", "Pandas", "NumPy", "Scikit-learn", "Git"];
+
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -55,8 +58,10 @@ export default function Home() {
       </section>
 
       <section id="about" className="section about"><p className="label">About me</p><h2>CURIOUS. FOCUSED.<br /><em>JUST GETTING STARTED.</em></h2><p>I am Bheem Chauhan, a student interested in data analysis, machine learning and artificial intelligence. This portfolio will grow alongside my learning journey.</p></section>
+      <section id="interests" className="section"><p className="label">Interests</p><h2>WHAT DRIVES<br /><em>MY CURIOSITY.</em></h2><div className="interest-grid">{interests.map((interest, index) => <article key={interest}><span>0{index + 1}</span><h3>{interest}</h3></article>)}</div></section>
+      <section id="tech-stack" className="section tech-stack"><p className="label">Tech Stack</p><h2>TOOLS I&apos;M<br /><em>LEARNING.</em></h2><div className="tech-list">{techStack.map((tool) => <span key={tool}>{tool}</span>)}</div></section>
       <section id="projects" className="section"><p className="label">Projects</p><h2>MY WORK.</h2><div className="project-grid">{projects.map((project, index) => <article className="project" key={project.title}><span>0{index + 1}</span><h3>{project.title}</h3><p>{project.description}</p></article>)}</div></section>
-      <section id="contact" className="contact"><p className="label">Contact</p><h2>LET&apos;S CONNECT.</h2><a href="mailto:bheemchauhan@example.com">bheemchauhan@example.com</a></section>
+      <section id="contact" className="contact"><p className="label">Contact</p><h2>CONNECT.</h2><a href="mailto:bheemchauhan@example.com">bheemchauhan@example.com</a></section>
     </main>
   </>;
 }
