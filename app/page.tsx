@@ -33,9 +33,10 @@ export default function Home() {
         <source src="/batman-intro.mp4" type="video/mp4" />
       </video>
     </section>}
-    <div className="bat-swarm" aria-hidden="true">{Array.from({ length: 8 }, (_, index) => <svg className={`roaming-bat bat-${index + 1}`} viewBox="0 0 180 100" key={index}><path d="M8 47 29 35l-3 20 21-7 13-27 12 18 18-11 18 11 12-18 13 27 21 7-3-20 21 12-23 12 10 21-32-6-16 14-16-14-32 6 10-21Z" /></svg>)}</div>
+    <div className="bat-swarm" aria-hidden="true">{Array.from({ length: 8 }, (_, index) => <svg className={`roaming-bat bat-${index + 1}`} viewBox="0 0 64 32" shapeRendering="crispEdges" key={index}><path d="M1 10h8V6h7v4h8V4h7v7h2V4h7v6h8V6h7v4h8v8h-9v4h-9v4h-7v4h-8v-4h-7v-4h-9v-4H1Z" /></svg>)}</div>
     <main>
       <header className="header">
+        <div className="batmobile-lane" aria-hidden="true"><img src="/batmobile.png" alt="" /></div>
         <a className="logo" href="#home">Bheem Chauhan</a>
         <button className="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           <span /><span />
