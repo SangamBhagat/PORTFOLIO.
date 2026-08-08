@@ -1,3 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="36" height="20" viewBox="0 0 180 100">
-  <path fill="#151314" stroke="#e8e3d9" stroke-opacity=".85" stroke-width="1.5" d="M8 47 29 35l-3 20 21-7 13-27 12 18 18-11 18 11 12-18 13 27 21 7-3-20 21 12-23 12 10 21-32-6-16 14-16-14-32 6 10-21Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="fire" cx="35%" cy="28%">
+      <stop offset="0" stop-color="#fff8b0"/>
+      <stop offset=".28" stop-color="#ffd23f"/>
+      <stop offset=".62" stop-color="#ff7216"/>
+      <stop offset="1" stop-color="#bd1809"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#fire)" stroke="#ffb21c" stroke-width="1.5" d="M34 3c3 14-6 18-3 27 2-4 6-8 6-14 12 10 16 21 10 33-5 10-19 15-29 7C5 46 9 29 21 18c-1 9 3 13 7 15-2-12 5-17 6-30Z"/>
+  <path fill="#fff4a0" d="M30 39c-2 5-7 10-2 16 3 4 11 3 13-2 3-7-2-11-5-16 0 5-3 7-6 2Z"/>
 </svg>
