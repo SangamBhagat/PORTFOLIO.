@@ -63,11 +63,10 @@ em { font-family: "Playfair Display", serif; font-weight: 600; }
 .connect-card svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .connect-card .github-icon { fill: currentColor; stroke: none; }
 .connect-card span { font-size: 1rem; }
-.quote-wall { padding: 6rem 0; overflow: hidden; background: #050607; }
-.quote-wall .label { margin-left: 6vw; color: var(--yellow); }
-.quote-window { margin-top: 28px; overflow: hidden; }
+.quote-wall { padding: 2rem 0 4rem; overflow: hidden; background: #050607; }
+.quote-window { overflow: hidden; }
 .quote-track { display: flex; width: max-content; gap: 18px; animation: quote-scroll 70s linear infinite; }
-.quote-card { display: flex; width: min(64vw, 680px); min-height: 150px; align-items: center; margin: 0; padding: 28px 34px; border: 1px solid rgba(233, 228, 218, .17); border-radius: 18px; background: linear-gradient(145deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .01)); color: var(--paper); font-family: "Playfair Display", serif; font-size: clamp(1.25rem, 2vw, 2rem); font-style: italic; line-height: 1.2; animation: quote-float 4.5s ease-in-out infinite alternate; }
+.quote-card { display: flex; width: min(64vw, 680px); min-height: 150px; align-items: center; margin: 0; padding: 28px 34px; border: 1px solid rgba(233, 228, 218, .17); border-radius: 18px; background: linear-gradient(145deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .01)); color: var(--paper); font-family: "Playfair Display", serif; font-size: clamp(1.25rem, 2vw, 2rem); font-style: italic; line-height: 1.2; text-wrap: balance; animation: quote-float 4.5s ease-in-out infinite alternate; }
 .quote-card:nth-child(3n) { animation-delay: -1.5s; }.quote-card:nth-child(3n + 2) { animation-delay: -3s; }
 @keyframes quote-scroll { to { transform: translateX(-50%); } }
 @keyframes quote-float { to { transform: translateY(-9px); } }
