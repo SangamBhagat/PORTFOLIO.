@@ -24,6 +24,7 @@ export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const companionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const introTimer = window.setTimeout(() => setShowIntro(false), 12000);
@@ -36,8 +37,40 @@ export default function Home() {
     }
   }, [showIntro]);
 
+  useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches || !companionRef.current) return;
+
+    const companion = companionRef.current;
+    let targetX = -80;
+    let targetY = -80;
+    let currentX = -80;
+    let currentY = -80;
+    let frameId = 0;
+
+    const followCursor = (event: PointerEvent) => {
+      targetX = event.clientX + 18;
+      targetY = event.clientY + 16;
+      companion.style.opacity = "1";
+    };
+
+    const animate = () => {
+      currentX += (targetX - currentX) * 0.14;
+      currentY += (targetY - currentY) * 0.14;
+      companion.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+      frameId = window.requestAnimationFrame(animate);
+    };
+
+    window.addEventListener("pointermove", followCursor, { passive: true });
+    frameId = window.requestAnimationFrame(animate);
+    return () => {
+      window.removeEventListener("pointermove", followCursor);
+      window.cancelAnimationFrame(frameId);
+    };
+  }, []);
+
   return <>
     <audio ref={audioRef} preload="auto"><source src="/im-batman.mp3" type="audio/mpeg" /></audio>
+    <div className="cursor-companion" ref={companionRef} aria-hidden="true"><svg viewBox="0 0 44 40" shapeRendering="crispEdges"><path fill="#e9e7df" d="M9 8h6V3h5v5h5V3h5v5h6v5h3v17h-5v5h-8v3H17v-3H9v-5H5V13h4Z" /><path fill="#e9e7df" d="M36 19h5v5h3v7h-8Z" /><path fill="#151515" d="M15 17h4v5h-4Zm11 0h4v5h-4Zm-7 9h7v3h-7Z" /><path fill="#f3c622" d="M21 23h3v3h-3Z" /></svg></div>
     {showIntro && <section className="intro-screen" aria-label="Welcome to Bheem Chauhan's portfolio">
       <video className="intro-video" autoPlay muted playsInline preload="auto" onEnded={() => setShowIntro(false)} onError={() => setShowIntro(false)}>
         <source src="/batman-intro.mp4" type="video/mp4" />
