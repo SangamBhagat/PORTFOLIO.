@@ -1,9 +1,0 @@
-.cat { position: fixed; top: 0; left: 0; z-index: 90; width: 26px; pointer-events: none; opacity: 0; transform-origin: center; will-change: transform; }
-.sprite { display: block; width: 100%; height: auto; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .52)); }
-.cat[data-state="idle"] .sprite { animation: idle 1.8s ease-in-out infinite; }
-.cat[data-state="walk"] .sprite { animation: walk .32s steps(2, end) infinite; }
-.cat[data-state="run"] .sprite { animation: run .16s steps(2, end) infinite; }
-@keyframes idle { 0%, 74%, 100% { transform: translateY(0); } 78% { transform: translateY(1px) scaleY(.92); } 84% { transform: translateY(0); } }
-@keyframes walk { 50% { transform: translateY(-2px) rotate(-2deg); } }
-@keyframes run { 50% { transform: translateY(-3px) rotate(-4deg); } }
-@media (pointer: coarse), (prefers-reduced-motion: reduce) { .cat { display: none; } }
