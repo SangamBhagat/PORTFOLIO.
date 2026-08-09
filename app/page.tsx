@@ -70,7 +70,7 @@ export default function Home() {
 
   return <>
     <audio ref={audioRef} preload="auto"><source src="/im-batman.mp3" type="audio/mpeg" /></audio>
-    <div className="cursor-companion" ref={companionRef} aria-hidden="true"><svg viewBox="0 0 44 40" shapeRendering="crispEdges"><path fill="#e9e7df" d="M9 8h6V3h5v5h5V3h5v5h6v5h3v17h-5v5h-8v3H17v-3H9v-5H5V13h4Z" /><path fill="#e9e7df" d="M36 19h5v5h3v7h-8Z" /><path fill="#151515" d="M15 17h4v5h-4Zm11 0h4v5h-4Zm-7 9h7v3h-7Z" /><path fill="#f3c622" d="M21 23h3v3h-3Z" /></svg></div>
+    <div className="cursor-companion" ref={companionRef} aria-hidden="true"><svg viewBox="0 0 32 32" shapeRendering="crispEdges"><path fill="#f1f0ea" d="M7 4h4V1h3v5h4V1h3v3h4v11h-3v5h-3v8h-4v-6h-3v6H8v-8h3v-5H7Z" /><path fill="#f1f0ea" d="M22 18h5v3h4v4h-7v-3h-2Z" /><path fill="#121212" d="M11 10h3v4h-3Zm7 0h3v4h-3Zm-4 7h4v2h-4Z" /></svg></div>
     {showIntro && <section className="intro-screen" aria-label="Welcome to Bheem Chauhan's portfolio">
       <video className="intro-video" autoPlay muted playsInline preload="auto" onEnded={() => setShowIntro(false)} onError={() => setShowIntro(false)}>
         <source src="/batman-intro.mp4" type="video/mp4" />
