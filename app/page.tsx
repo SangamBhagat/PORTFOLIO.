@@ -19,10 +19,6 @@ const batmanQuotes = [
   "If I allow myself to go down into that place... I'll never come back.",
   "I will never stop trying. Because every time I save one person, I defeat you.",
 ];
-const activityLevels = Array.from({ length: 364 }, (_, index) => {
-  const value = (index * 17 + Math.floor(index / 7) * 11) % 19;
-  return value > 15 ? 4 : value > 11 ? 3 : value > 7 ? 2 : value > 3 ? 1 : 0;
-});
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -39,6 +35,22 @@ export default function Home() {
       void audioRef.current?.play().catch(() => undefined);
     }
   }, [showIntro]);
+
+  useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const script = document.createElement("script");
+    script.src = "https://raw.githubusercontent.com/adryd325/oneko.js/main/oneko.js";
+    script.dataset.cat = "https://raw.githubusercontent.com/adryd325/oneko.js/main/oneko.gif";
+    script.dataset.persistPosition = "false";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      script.remove();
+      document.getElementById("oneko")?.remove();
+    };
+  }, []);
 
   return <>
     <audio ref={audioRef} preload="auto"><source src="/im-batman.mp3" type="audio/mpeg" /></audio>
@@ -76,7 +88,7 @@ export default function Home() {
       <section id="about" className="section about"><p className="label">About me</p><h2>CURIOUS. FOCUSED.<br /><em>JUST GETTING STARTED.</em></h2><p>I am Bheem Chauhan, a student interested in data analysis, machine learning and artificial intelligence. This portfolio will grow alongside my learning journey.</p></section>
       <section id="interests" className="section"><p className="label">Interests</p><h2>WHAT DRIVES<br /><em>MY CURIOSITY.</em></h2><div className="interest-grid">{interests.map((interest, index) => <article key={interest}><span>0{index + 1}</span><h3>{interest}</h3></article>)}</div></section>
       <section id="tech-stack" className="section tech-stack"><p className="label">Tech Stack</p><h2>TOOLS I&apos;M<br /><em>LEARNING.</em></h2><div className="tech-list">{techStack.map((tool) => <span key={tool}>{tool}</span>)}</div></section>
-      <section id="projects" className="section"><p className="label">Projects</p><h2>MY WORK.</h2><div className="project-grid">{projects.map((project, index) => <article className="project" key={project.title}><span>0{index + 1}</span><h3>{project.title}</h3><p>{project.description}</p></article>)}</div><div className="github-activity"><div className="activity-heading"><h3>GitHub Activity</h3><a href="https://github.com/mannurajputxx" target="_blank" rel="noreferrer">@mannurajputxx ↗</a></div><div className="activity-scroll"><div className="activity-chart"><div className="activity-months">{["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map((month) => <span key={month}>{month}</span>)}</div><div className="activity-body"><div className="activity-days"><span>Mon</span><span>Wed</span><span>Fri</span></div><div className="activity-grid">{activityLevels.map((level, index) => <span className={`activity-cell level-${level}`} key={index} />)}</div></div></div></div><div className="activity-footer"><span>Contribution-style activity overview</span><span className="activity-legend">Less <i className="level-0" /><i className="level-1" /><i className="level-2" /><i className="level-3" /><i className="level-4" /> More</span></div></div></section>
+      <section id="projects" className="section"><p className="label">Projects</p><h2>MY WORK.</h2><div className="project-grid">{projects.map((project, index) => <article className="project" key={project.title}><span>0{index + 1}</span><h3>{project.title}</h3><p>{project.description}</p></article>)}</div><div className="github-activity"><div className="activity-heading"><h3>GitHub Activity</h3><a href="https://github.com/mannurajputxx" target="_blank" rel="noreferrer">@mannurajputxx ↗</a></div><div className="activity-scroll"><img className="live-activity-chart" src="https://gh-heat.anishroy.com/api/mannurajputxx/svg?theme=accent&amp;darkMode=true" alt="Live GitHub contribution activity for mannurajputxx" /></div></div></section>
       <section id="contact" className="contact"><video className="contact-video" autoPlay loop muted playsInline preload="metadata" aria-hidden="true"><source src="/connect-background.mp4" type="video/mp4" /></video><div className="contact-overlay" aria-hidden="true" /><p className="label">Connect</p><h2>LET&apos;S CONNECT.</h2><div className="connect-grid">
         <a className="connect-card" href="mailto:mannurajputxx@gmail.com" aria-label="Send Bheem an email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m4 7 8 6 8-6" /></svg><span>Email</span></a>
         <a className="connect-card" href="https://github.com/mannurajputxx" target="_blank" rel="noreferrer" aria-label="Visit Bheem's GitHub"><svg className="github-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.47.09.65-.2.65-.46v-1.8c-2.65.58-3.2-1.12-3.2-1.12-.43-1.1-1.06-1.39-1.06-1.39-.87-.59.07-.58.07-.58.96.07 1.47.99 1.47.99.86 1.47 2.24 1.05 2.79.8.08-.62.34-1.05.61-1.3-2.12-.24-4.35-1.06-4.35-4.72 0-1.04.37-1.9.98-2.56-.1-.24-.43-1.21.09-2.52 0 0 .8-.26 2.61.98a9.05 9.05 0 0 1 4.75 0c1.82-1.24 2.61-.98 2.61-.98.52 1.31.19 2.28.1 2.52.61.66.97 1.52.97 2.56 0 3.67-2.24 4.47-4.37 4.71.34.3.65.89.65 1.79v2.65c0 .26.17.56.65.46A9.5 9.5 0 0 0 12 2.5Z" /></svg><span>GitHub</span></a>
