@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import CatCursor from "../components/CatCursor";
 
 const projects = [
   { title: "Data Analysis", description: "A future project exploring insights from real-world datasets." },
@@ -24,7 +25,6 @@ export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const companionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const introTimer = window.setTimeout(() => setShowIntro(false), 12000);
@@ -37,40 +37,9 @@ export default function Home() {
     }
   }, [showIntro]);
 
-  useEffect(() => {
-    if (!window.matchMedia("(pointer: fine)").matches || !companionRef.current) return;
-
-    const companion = companionRef.current;
-    let targetX = -80;
-    let targetY = -80;
-    let currentX = -80;
-    let currentY = -80;
-    let frameId = 0;
-
-    const followCursor = (event: PointerEvent) => {
-      targetX = event.clientX + 18;
-      targetY = event.clientY + 16;
-      companion.style.opacity = "1";
-    };
-
-    const animate = () => {
-      currentX += (targetX - currentX) * 0.14;
-      currentY += (targetY - currentY) * 0.14;
-      companion.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
-      frameId = window.requestAnimationFrame(animate);
-    };
-
-    window.addEventListener("pointermove", followCursor, { passive: true });
-    frameId = window.requestAnimationFrame(animate);
-    return () => {
-      window.removeEventListener("pointermove", followCursor);
-      window.cancelAnimationFrame(frameId);
-    };
-  }, []);
-
   return <>
     <audio ref={audioRef} preload="auto"><source src="/im-batman.mp3" type="audio/mpeg" /></audio>
-    <div className="cursor-companion" ref={companionRef} aria-hidden="true"><svg viewBox="0 0 32 32" shapeRendering="crispEdges"><path fill="#f1f0ea" d="M7 4h4V1h3v5h4V1h3v3h4v11h-3v5h-3v8h-4v-6h-3v6H8v-8h3v-5H7Z" /><path fill="#f1f0ea" d="M22 18h5v3h4v4h-7v-3h-2Z" /><path fill="#121212" d="M11 10h3v4h-3Zm7 0h3v4h-3Zm-4 7h4v2h-4Z" /></svg></div>
+    <CatCursor />
     {showIntro && <section className="intro-screen" aria-label="Welcome to Bheem Chauhan's portfolio">
       <video className="intro-video" autoPlay muted playsInline preload="auto" onEnded={() => setShowIntro(false)} onError={() => setShowIntro(false)}>
         <source src="/batman-intro.mp4" type="video/mp4" />
